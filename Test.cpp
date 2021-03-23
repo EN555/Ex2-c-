@@ -14,7 +14,7 @@ TEST_CASE("Horizontal"){
     //without spaces
     board.post(0,0,Direction::Horizontal,"eviatar");
     CHECK(board.read(0,0,Direction::Horizontal,0)==" ");       //need to check what need to return
-    CHECK(board.read(0,0,Direction::Horizontal,3)=="evi");
+    CHECK(board.read(0,0,Direction::Horizontal,3)== "evi");
     CHECK(board.read(0,0,Direction::Horizontal,5)=="eviat");
     CHECK(board.read(0,0,Direction::Horizontal,7)=="eviatar");
     //with spaces
@@ -48,14 +48,14 @@ TEST_CASE("StringsOnStrings"){
 
 }
 
-//TEST_CASE("BigBoard & BigStrings"){
-//    Board board;    //create an object on the stack
-//    unsigned int row = rand()%1000 + 1;
-//    unsigned int col = rand()%1000 + 1;
-//    std::string s(100, 'A');
-//    CHECK_NOTHROW(board.post(row,col,Direction::Horizontal,s));
-//    CHECK_NOTHROW(board.post(row,col,Direction::Vertical,s));
-//}
+TEST_CASE("BigBoard & BigStrings"){
+    Board board;    //create an object on the stack
+    unsigned int row = rand()%1000 + 1;
+    unsigned int col = rand()%1000 + 1;
+    std::string s(100, 'A');
+    CHECK_NOTHROW(board.post(row,col,Direction::Horizontal,s));
+    CHECK_NOTHROW(board.post(row,col,Direction::Vertical,s));
+}
 
 TEST_CASE("Empty Board"){
     Board board;   //create an empty board on the stack and check the flexibility
